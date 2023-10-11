@@ -1,0 +1,98 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+{% block content %}
+        <style>
+            .container-fluid{
+                background-color: rgb(226, 236, 236) !important;
+            }
+            .card-header{
+              background-color: white;
+            }
+        </style>
+       
+            <!-- row -->
+            <div class="container-fluid mt-5 ml-3">
+                <div class="row">
+                    <div class="col-lg-10 col-sm-12">
+                        
+                            <section id="basic-datatable">
+                                <div class="row">
+                                  <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                          <h4 class="card-title mt-3">All Tenants Records<span><a href="#" class="btn btn-sm btn-info mb-3  text-center float-right btn-inline"><i class="typcn typcn-export menu-icon"></i></a></span></h4>
+                                          </div>
+                                      <div class="card-content">
+                                        <div class="card-body card-dashboard">
+                                          <div class="table-responsive">
+                                            <table class="table zero-configuration">
+                                              <thead>
+                                                <tr>
+
+                                                 <th scope="col">No</th>
+                                                 <th scope="col">Name</th>
+                                                  <th scope="col">ID NO</th>
+                                                  <th scope="col">Phone Number</th>
+                                                  <th scope="col">Occupation Date</th>
+                                                  <th scope="col">House No</th>
+                                                  <th scope="col">Actions</th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                              {% for object in tenants %}
+                                                <tr>
+                                                  <td>{{ forloop.counter }}</td>
+                                                  <td>{{object.full_name}}</td>
+                                                  <td>{{object.id_number}}</td>
+                                                  <td>{{object.phone_number}}</td>
+                                                  <td>{{object.occupation_date}}</td>
+                                                  <td>{{object.house}}</td>
+                                                  <td>
+                                                    <div class="actions-container">
+                                                      <span class="action-item">
+                                                        <a href="#" class="text-danger" data-toggle="modal"  data-target="#danger-#"><i class="typcn typcn-trash menu-icon"></i></a>
+                                                      </span> 
+                                                      <span class="action-item">
+                                                        <a href="#" class="text-primary"><i class="typcn typcn-edit menu-icon"></i></a>
+                                                      </span>
+                                                    </div>
+                                                  </td>
+                                                  
+                                                  
+                                                </tr>
+                                                {% endfor %}
+                                              </tbody>
+                                              <tfoot>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Name</th>
+                                                    <th>ID NO</th>
+                                                    <th>Phone Number</th>
+                                                    <th>Occupation Date</th>
+                                                    <th>House No</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                              </tfoot>
+                                            </table>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </section>
+                        
+                    </div>
+                </div>
+            </div>
+        {% comment %} {% include 'includes/footer.html' %} {% endcomment %}
+
+    </div>
+
+{% endblock %}
+
+</html>

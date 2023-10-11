@@ -1,0 +1,102 @@
+{% load static %}
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="d-flex sidebar-profile">
+        <div class="sidebar-profile-image">
+          <img src="{% static 'images/faces/face29.png' %}" alt="image">
+          <span class="sidebar-status-indicator"></span>
+        </div>
+        <div class="sidebar-profile-name">
+          <p class="sidebar-name">
+            {{user.full_name}}
+          </p>
+          <p class="sidebar-designation">
+            Welcome
+          </p>
+        </div>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="typcn typcn-device-desktop menu-icon"></i>
+        <span class="menu-title">Dashboard</span>
+      </a>
+    </li>
+    {% if user.is_authenticated and user.is_active and user.is_landlord %}
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+        <i class="typcn typcn-briefcase menu-icon"></i>
+        <span class="menu-title">Houses</span>
+        <i class="typcn typcn-chevron-right menu-arrow"></i>
+      </a>
+      <div class="collapse" id="ui-basic">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="{% url 'property_list' %}">View Houses</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false"
+        aria-controls="form-elements">
+        <i class="typcn typcn-film menu-icon"></i>
+        <span class="menu-title">Tenants</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="form-elements">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"><a class="nav-link" href="{% url 'tenant_list' %}">View Tenants</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+        <i class="typcn typcn-chart-pie-outline menu-icon"></i>
+        <span class="menu-title">Payments</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="charts">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="{% url 'payment_list' %}">View Rent Payements</a></li>
+        </ul>
+      </div>
+    </li>
+    {% endif %}
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+        <i class="typcn typcn-th-small-outline menu-icon"></i>
+        <span class="menu-title">Bookings</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="tables">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="#">View Bookings</a></li>
+        </ul>
+      </div>
+    </li>
+    {% if user.is_authenticated and user.is_active and user.is_tenant and not user.is_landlord and not user.is_admin and
+    not user.is_superadmin %}
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
+        <i class="typcn typcn-compass menu-icon"></i>
+        <span class="menu-title">My Payments</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="icons">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="{% url 'my_paymnent_list' %}">View Rent Payment History</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    {% endif %}
+  </ul>
+  <ul class="sidebar-legend">
+    <li>
+      <p class="sidebar-menu-title">Statistics</p>
+    </li>
+    <li class="nav-item"><a href="#" class="nav-link">Rent Arrears</a></li>
+    <li class="nav-item"><a href="#" class="nav-link">#Tenants</a></li>
+    <li class="nav-item"><a href="#" class="nav-link">#Payments</a></li>
+  </ul>
+</nav>

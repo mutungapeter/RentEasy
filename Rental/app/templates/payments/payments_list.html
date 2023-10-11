@@ -1,0 +1,94 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+{% block content %}
+        <style>
+            .container-fluid{
+                background-color: rgb(226, 236, 236) !important;
+            }
+        </style>
+       
+            <!-- row -->
+            <div class="container-fluid mt-5 ml-3">
+                <div class="row">
+                    <div class="col-lg-10 col-sm-12">
+                        
+                            <section id="basic-datatable">
+                                <div class="row">
+                                  <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="card-title">My Payment Records</h4>
+                                          </div>
+                                      <div class="card-content">
+                                        <div class="card-body card-dashboard">
+                                          <div class="table-responsive">
+                                            <table class="table zero-configuration">
+                                              <thead>
+                                                <tr>
+
+                                                 <th scope="col">No</th>
+                                                 <th scope="col">Tenant</th>
+                                                  <th scope="col">House No</th>
+                                                  <th scope="col">Amount Due</th>
+                                                  <th scope="col">Amount Paid</th>
+                                                  <th scope="col">Date Paid</th>
+                                                  <th scope="col">Rent Arrears</th>
+                                                  <th scope="col">View Details</th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                              {% for object in payments %}
+                                                <tr>
+                                                  <td>{{ forloop.counter }}</td>
+                                                  <td>{{object.tenant}}</td>
+                                                  <td>{{object.house}}</td>
+                                                  <td>{{object.amount_due}}</td>
+                                                  <td>{{object.amount_paid}}</td>
+                                                  <td>{{object.date_paid}}</td>
+                                                  <td>{{object.rent_arrears}}</td>
+                                                  
+                                                  <td>
+                                                    <div class="actions-container">
+                                                      <span class="action-item">
+                                                        <a href="#" class="text-primary"><i class="typcn typcn-eye menu-icon"></i></a>
+                                                      </span>
+                                                    </div>
+                                                  </td>
+                                                </tr>
+                                                {% endfor %}
+                                              </tbody>
+                                              <tfoot>
+                                                <tr>
+                                                <th>No</th>
+                                                 <th>Tenant</th>
+                                                  <th>House No</th>
+                                                  <th>Amount Due</th>
+                                                  <th>Amount Paid</th>
+                                                  <th>Date Paid</th>
+                                                  <th>Rent Arrears</th>
+                                                  <th>View Details</th>
+                                                </tr>
+                                              </tfoot>
+                                            </table>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </section>
+                        
+                    </div>
+                </div>
+            </div>
+        {% comment %} {% include 'includes/footer.html' %} {% endcomment %}
+
+    </div>
+
+{% endblock %}
+
+</html>

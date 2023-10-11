@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>RentEasy</title>
+  <!-- base:css -->
+  <link rel="stylesheet" href="{% static 'vendors/typicons.font/font/typicons.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'css/vertical-layout-light/style.css' %}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="{% static 'images/favicon-logo.png' %}" />
+
+
+
+
+  <link rel="stylesheet" type="text/css"
+    href="{% static 'app-assets/vendors/css/tables/datatable/datatables.min.css' %}">
+  <link href="{% static 'dashboard/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+  <div class="container-scroller">
+    
+    <!-- partial:partials/_navbar.html -->
+    {% include 'includes/navbar.html' %}
+    <!-- partial -->
+
+    <div class="container-fluid page-body-wrapper">
+
+      <!-- partial:partials/_sidebar.html -->
+      {% include 'includes/sidebar.html' %}
+      <!-- partial -->
+
+      <!--main-panel starts-->
+      {% block content %}
+
+
+      {% include 'includes/alerts.html' %}
+
+
+      {% endblock %}
+
+      <!-- main-panel ends -->
+    </div>
+  </div>
+  <!-- container-scroller -->
+
+
+  <!-- base:js -->
+  <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+  <script src="{% static 'js/off-canvas.js' %}"></script>
+  <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'js/template.js' %}"></script>
+  <script src="{% static 'js/settings.js' %}"></script>
+  <script src="{% static 'js/todolist.js' %}"></script>
+  <script src="{% static 'vendors/progressbar.js/progressbar.min.js' %}"></script>
+  <script src="{% static 'vendors/chart.js/Chart.min.js' %}"></script>
+  <script src="{% static 'js/dashboard.js' %}"></script>
+  <!-- End custom js for this page-->
+
+
+
+
+  <!-- Required vendors -->
+  <script src="{% static 'dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'app-assets/vendors/js/tables/datatable/pdfmake.min.js' %}"></script>
+  <script src="{% static 'app-assets/vendors/js/tables/datatable/vfs_fonts.js' %}"></script>
+  <script src="{% static 'app-assets/vendors/js/tables/datatable/datatables.min.js' %}"></script>
+  <script src="{% static 'app-assets/vendors/js/tables/datatable/datatables.buttons.min.js' %}"></script>
+  <script src="{% static 'app-assets/vendors/js/tables/datatable/buttons.html5.min.js' %}"></script>
+  <script src="{% static 'app-assets/vendors/js/tables/datatable/buttons.print.min.js' %}"></script>
+  <script src="{% static 'app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js' %}"></script>
+  <script src="{% static 'app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js' %}"></script>
+  <script src="{% static 'app-assets/js/scripts/datatables/datatable.js' %}"></script>
+</body>
+
+</html>

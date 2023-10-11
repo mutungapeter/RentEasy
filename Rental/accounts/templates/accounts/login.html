@@ -1,0 +1,99 @@
+{% extends 'accounts/accounts_base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<style>
+    .body {
+        background: #e8f0f1 !important;
+    }
+
+    .content-wrapper {
+        background: #e8f0f1;
+    }
+</style>
+<div class="content-wrapper">
+    <div class="body">
+
+        <section class="row flexbox-container row mt-5">
+            <div class="col-xl-12 col-11  col-md-12 d-flex justify-content-center">
+                {% if request.GET.command == 'verification' %}
+                <div class="container max-auto alert  text-center text-dark" role="alert"
+                    style="max-width: 1000px; margin-top:100px;">
+                    Thank you for registering with us. We have have sent a verification email to your email
+                    address[{{request.GET.email}}].Please Verify it.
+                    <br></br>
+                    Already verified? <a href="{% url 'login' %}">Login</a>
+                </div>
+
+                {% else %}
+                <div class="card bg-authentication rounded-0 mt-4 mb-3">
+                    <div class="col-lg-12 col-md-12 p-0">
+
+                        <div class="card rounded-0 mb-0 px-2" style="height: 600px;">
+                            <div class="card-header pb-1">
+                                <div class="card-title mt-4">
+                                    <h4 class="mb-0 text-center" style="margin-left: 150px;">KWEMA RENTALS</h4>
+                                </div>
+                            </div>
+                            <p class="px-2">Welcome back please login to your account.</p>
+
+                            <div class="card-content">
+                                <div class="card-body pt-1" style="height: 390px;">
+                                    {% include 'includes/alerts.html' %}
+                                    <form action="{% url 'login' %}" method="POST">
+                                        {% csrf_token %}
+                                        <label for="email">Email</label>
+                                        <fieldset class="form-label-group form-group position-relative mt-2 mb-1">
+                                            <input type="text" class="form-control" name="email" id=""
+                                                placeholder="email" required>
+                                        </fieldset>
+                                        <label for="user-password">Password</label>
+                                        <fieldset class="form-label-group position-relative mt-4">
+                                            <input type="password" class="form-control" name="password" id=""
+                                                placeholder="Password" required>
+
+
+                                        </fieldset>
+                                        <div class="form-group d-flex justify-content-between align-items-center">
+                                            <div class="text-left">
+                                                <div class="text-right mt-3">
+                                                    <p class="text-center">New to Book KWEMA RENTALS? <a
+                                                            href="{% url 'register' %}">Create Account</a></p>
+                                                </div>
+                                            </div>
+                                            <div class="text-left" style="margin-left: 50px;"> <a href="#"
+                                                    class="float-right mt-3">Forgot password?</a>
+                                            </div>
+
+                                        </div>
+                                        <button type="submit"
+                                            class="btn btn-primary mt-5  btn-block text-center float-right btn-inline">Login</button>
+
+
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- <div class="login-footer">
+                                              
+                                          </div> -->
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+    </div>
+
+
+
+
+
+
+    </section>
+
+</div>
+</div>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+
+{% endblock %}

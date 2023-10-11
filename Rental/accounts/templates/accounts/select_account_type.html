@@ -1,0 +1,93 @@
+{% extends 'accounts/accounts_base.html' %}
+
+{% comment %} <form method="post" action="{% url 'select_account_type' %}">
+    {% csrf_token %}
+    <label>
+        <input type="radio" name="account_type" value="artist">LanLord
+    </label>
+    <label>
+        <input type="radio" name="account_type" value="customer"> Tenant
+    </label>
+    <button type="submit">Continue</button>
+</form> {% endcomment %}
+
+{% load static %}
+{% block content %}
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<style>
+    .card {
+        background-color: aquamarine;
+    }
+
+    .card-header {
+        background-color: aquamarine;
+    }
+</style>
+<div class="content-wrapper">
+    <div class="body mt-5">
+
+        <section class="row flexbox-container row">
+            <div class="col-xl-12 col-11  col-md-12 d-flex justify-content-center">
+
+                <div class="card bg-authentication rounded-0 mb-5">
+                    <div class="col-lg-12 col-md-12 p-0">
+
+                        <div class="card rounded-0 mb-0 px-2" style="height: 500px;">
+                            <div class="card-header pb-1">
+                                <div class="card-title">
+                                    <h4 class="mb-0 text-center mt-4">KWEMA RENTALS</h4>
+                                </div>
+                            </div>
+                            <p class="px-2">Complete Account Creation by selecting account type</p>
+
+                            <div class="card-content">
+                                <div class="card-body pt-1" style="height: 390px;">
+                                    {% comment %} {% include 'includes/alerts.html' %} {% endcomment %}
+
+
+                                    <form action="{% url 'select_account_type' %}" method="POST">
+                                        {% csrf_token %}
+                                        <label for="email" class="">Select for a Landlord Account</label>
+                                        <fieldset class="form-label-group form-group position-relative mt-2 mb-1">
+                                            <label>
+                                                <input type="radio" name="account_type" value="landlord"> LandLord
+                                            </label>
+                                        </fieldset>
+                                        <label for="user-password">Select for a Tenant account</label>
+                                        <fieldset class="form-label-group position-relative mt-4">
+                                            <label>
+                                                <input type="radio" name="account_type" value="tenant"> Tenant
+                                            </label>
+                                        </fieldset>
+
+                                        <button type="submit"
+                                            class="btn btn-primary mt-5  btn-block text-center float-right btn-inline">Submit</button>
+
+
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- <div class="login-footer">
+                                              
+                                          </div> -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </div>
+
+
+
+
+
+
+    </section>
+
+</div>
+</div>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+
+{% endblock %}
