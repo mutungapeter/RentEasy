@@ -20,9 +20,10 @@
                                 <div class="row">
                                   <div class="col-12">
                                     <div class="card">
-                                        <div class="card-header">
-                                            <h4 class="card-title">My Payment Records</h4>
-                                          </div>
+                                      <div class="card-header">
+                                        <h4 class="card-title mt-3">Payments Records <span><a href="#" class="btn btn-sm btn-info mb-3  text-center float-right btn-inline">View Rent Arrears
+                                          </a></span></h4>
+                                      </div>
                                       <div class="card-content">
                                         <div class="card-body card-dashboard">
                                           <div class="table-responsive">
@@ -44,8 +45,9 @@
                                               {% for object in payments %}
                                                 <tr>
                                                   <td>{{ forloop.counter }}</td>
-                                                  <td>{{object.tenant}}</td>
-                                                  <td>{{object.house}}</td>
+                                                  <th scope="row"><a href="{% url 'payment_detail' object.pk %}">{{object.tenant}}</a></th>
+                                                  {% comment %} <td>{{object.tenant}}</td> {% endcomment %}
+                                                  <td>{{object.house.house_number}}</td>
                                                   <td>{{object.amount_due}}</td>
                                                   <td>{{object.amount_paid}}</td>
                                                   <td>{{object.date_paid}}</td>
@@ -54,7 +56,7 @@
                                                   <td>
                                                     <div class="actions-container">
                                                       <span class="action-item">
-                                                        <a href="#" class="text-primary"><i class="typcn typcn-eye menu-icon"></i></a>
+                                                        <a href="{% url 'payment_detail' object.pk %}" class="text-primary"><i class="typcn typcn-eye menu-icon"></i></a>
                                                       </span>
                                                     </div>
                                                   </td>

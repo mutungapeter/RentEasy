@@ -1,1 +1,79 @@
-property detail
+{% extends 'index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+{% block content %}
+
+
+<style>
+    .container-fluid {
+        background-color: rgb(226, 236, 236) !important;
+    }
+
+    .card-header {
+        background-color: white !important;
+    }
+</style>
+
+
+<div class="container-fluid mt-5 ml-3">
+    <div class="row">
+        <div class="col-lg-10 col-sm-12">
+
+            <section id="basic-datatable">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title mt-3">House Details <span><a href="{% url 'property_list' %}"
+                                            class="btn btn-sm btn-info mb-3  text-center float-right btn-inline">Go Back</a></span></h4>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body card-dashboard">
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <div class="img-big-wrap mainImage">
+                                                <center> <img src="{{object.image.url}}" width="200" height="300"
+                                                    style="border-radius: 20px"></center>
+                                               </div>
+                                        </div>
+                                        <div class="col-5">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">Landlord:  <span class="badge badge-primary">{{object.landlord.user.full_name}}</span></li>
+                                                <li class="list-group-item">House No:<span class="badge badge-success"> {{object.house_number}}</span></li>
+                                                <li class="list-group-item">House Type: <span class="badge badge-warning">{{object.house_type}}</span></li>
+                                                <li class="list-group-item">Rent Cost: <span class="badge badge-success">{{object.rent}}</span></li>
+                                                <li class="list-group-item">Deposit Cost: <span class="badge badge-primary">{{object.deposit}}</span> </li>
+                                                <li class="list-group-item">status: <span class="badge badge-warning ">{{object.stats}}</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                  
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+{% endblock %}
+
+</html>

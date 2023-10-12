@@ -31,7 +31,7 @@ class House(models.Model):
     rent = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
     deposit = models.DecimalField(max_digits=10, decimal_places=2)
     status = models.BooleanField(choices=STATUS_CHOICES, default=False) 
-    
+    image = models.ImageField(upload_to="house/images", null=True)
 
     def __str__(self):
         return self.house_number
@@ -50,7 +50,7 @@ class Tenant(models.Model):
     phone_number = models.CharField(max_length=15)
     occupation_date = models.DateField()
     house = models.ForeignKey(House, on_delete=models.CASCADE, null=True, blank=True)
-
+    image = models.ImageField(upload_to="tenants/images", null=True)
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
     def full_name(self):
@@ -59,6 +59,8 @@ class Tenant(models.Model):
 class Payment(models.Model):
     tenant = models.ForeignKey(Tenant, on_delete=models.CASCADE)
     house = models.ForeignKey(House, on_delete=models.CASCADE)
+    payment_id = models.CharField(max_length=100, null=True)
+    payment_method = models.CharField(max_length=100, null=True)
     amount_due = models.DecimalField(max_digits=10, decimal_places=2, default=0.0, editable=False)
     amount_paid = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
     date_paid = models.DateField()

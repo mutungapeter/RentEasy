@@ -74,8 +74,7 @@
         </ul>
       </div>
     </li>
-    {% if user.is_authenticated and user.is_active and user.is_tenant and not user.is_landlord and not user.is_admin and
-    not user.is_superadmin %}
+    {% if user.is_authenticated and user.is_active and user.is_tenant and not user.is_landlord and not user.is_admin and not user.is_superadmin %}
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
         <i class="typcn typcn-compass menu-icon"></i>

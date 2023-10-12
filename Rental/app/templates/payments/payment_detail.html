@@ -1,0 +1,81 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+{% block content %}
+
+
+<style>
+    .container-fluid {
+        background-color: rgb(226, 236, 236) !important;
+    }
+
+    .card-header {
+        background-color: white !important;
+    }
+</style>
+
+
+<div class="container-fluid mt-5 ml-3">
+    <div class="row">
+        <div class="col-lg-10 col-sm-12">
+
+            <section id="basic-datatable">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title mt-3">Payment Details <span><a href="{% url 'payment_list' %}"
+                                            class="btn btn-sm btn-info mb-3  text-center float-right btn-inline">Go Back</a></span></h4>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body card-dashboard">
+                                    <div class="row">
+                                        {% comment %} <div class="col-5">
+                                            <div class="img-big-wrap mainImage">
+                                                <center> <img src="{{object.image.url}}" width="200" height="300"
+                                                    style="border-radius: 20px"></center>
+                                               </div>
+                                        </div> {% endcomment %}
+                                        <div class="col-5">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">Tenant:  <span class="badge badge-primary">{{object.tenant.user.full_name}}</span></li>
+                                                <li class="list-group-item">House No:<span class="badge badge-success"> {{object.house.house_number}}</span></li>
+                                                <li class="list-group-item">Payment Id: <span class="badge badge-warning">{{object.payment_id}}</span></li>
+                                                <li class="list-group-item">Payment Method: <span class="badge badge-success">{{object.payment_method}}</span></li>
+                                                <li class="list-group-item">Amount Due: <span class="badge badge-primary">{{object.amount_due}}</span> </li>
+                                                <li class="list-group-item">Amount Paid: <span class="badge badge-warning ">{{object.amount_paid}}</span></li>
+                                                <li class="list-group-item">Date Paid: <span class="badge badge-warning ">{{object.date_paid}}</span></li>
+                                                <li class="list-group-item">Rent Arrears: <span class="badge badge-warning ">{{object.rent_arrears}}</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                  
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+{% endblock %}
+
+</html>

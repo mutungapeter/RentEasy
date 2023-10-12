@@ -1,1 +1,79 @@
-Tenant Detail
+{% extends 'index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+{% block content %}
+
+
+<style>
+    .container-fluid {
+        background-color: rgb(226, 236, 236) !important;
+    }
+
+    .card-header {
+        background-color: white !important;
+    }
+</style>
+
+
+<div class="container-fluid mt-5 ml-3">
+    <div class="row">
+        <div class="col-lg-10 col-sm-12">
+
+            <section id="basic-datatable">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title mt-3">Tenant Details <span><a href="{% url 'tenant_list' %}"
+                                            class="btn btn-sm btn-info mb-3  text-center float-right btn-inline">Go Back</a></span></h4>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body card-dashboard">
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <div class="img-big-wrap mainImage">
+                                                <center> <img src="{{object.image.url}}" width="200" height="300"
+                                                    style="border-radius: 20px"></center>
+                                               </div>
+                                        </div>
+                                        <div class="col-5">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">Tenant Name:  <span class="badge badge-primary">{{object.user.full_name}}</span></li>
+                                                <li class="list-group-item">Landlord:<span class="badge badge-success"> {{object.landlord.user.full_name}}</span></li>
+                                                <li class="list-group-item">Tenant ID NO: <span class="badge badge-warning">{{object.id_number}}</span></li>
+                                                <li class="list-group-item">Tenant Phone Number: <span class="badge badge-success">{{object.phone_number}}</span></li>
+                                                <li class="list-group-item">Entry Date: <span class="badge badge-primary">{{object.occupation_date}}</span> </li>
+                                                <li class="list-group-item">Occupied House No: <span class="badge badge-warning ">{{object.house}}</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                  
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+{% endblock %}
+
+</html>

@@ -35,7 +35,7 @@
 
                                                  <th scope="col">No</th>
                                                  <th scope="col">Name</th>
-                                                  <th scope="col">ID NO</th>
+                                                 <th scope="col">ID NO</th>
                                                   <th scope="col">Phone Number</th>
                                                   <th scope="col">Occupation Date</th>
                                                   <th scope="col">House No</th>
@@ -46,7 +46,8 @@
                                               {% for object in tenants %}
                                                 <tr>
                                                   <td>{{ forloop.counter }}</td>
-                                                  <td>{{object.full_name}}</td>
+                                                  <th scope="row"><a href="{% url 'tenant_detail' object.pk %}">{{object.full_name}}</a></th>
+                                                  {% comment %} <td>{{object.full_name}}</td> {% endcomment %}
                                                   <td>{{object.id_number}}</td>
                                                   <td>{{object.phone_number}}</td>
                                                   <td>{{object.occupation_date}}</td>
@@ -56,13 +57,11 @@
                                                       <span class="action-item">
                                                         <a href="#" class="text-danger" data-toggle="modal"  data-target="#danger-#"><i class="typcn typcn-trash menu-icon"></i></a>
                                                       </span> 
-                                                      <span class="action-item">
+                                                      <span class="action-item ml-4">
                                                         <a href="#" class="text-primary"><i class="typcn typcn-edit menu-icon"></i></a>
                                                       </span>
                                                     </div>
-                                                  </td>
-                                                  
-                                                  
+                                                  </td> 
                                                 </tr>
                                                 {% endfor %}
                                               </tbody>

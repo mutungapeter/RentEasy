@@ -40,9 +40,9 @@
                                                 <tr>
 
                                                   <th scope="col">Count</th>
+                                                  <th scope="col">House Type</th>
                                                   <th scope="col">Owner</th>
                                                   <th scope="col">House No</th>
-                                                  <th scope="col">House Type</th>
                                                   <th scope="col">Rent Amount</th>
                                                   <th scope="col">Deposit</th>
                                                   <th scope="col">Status</th>
@@ -53,9 +53,10 @@
                                                 {% for object in properties %}
                                                   <tr>
                                                     <td>{{ forloop.counter }}</td>
+                                                    {% comment %} <td>{{object.house_type}}</td> {% endcomment %}
+                                                    <th scope="row"><a href="{% url 'property_detail' object.pk %}">{{object.house_type}}</a></th>
                                                     <td>{{object.landlord.user.full_name}}</td>
                                                     <td>{{object.house_number}}</td>
-                                                    <td>{{object.house_type}}</td>
                                                     <td>{{object.rent}}</td>
                                                     <td>{{object.deposit}}</td>
                                                     {% if object.status == True %}

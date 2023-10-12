@@ -1,7 +1,7 @@
 from typing import Any
 from django.db.models.query import QuerySet
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, UpdateView
 from .models import House, Tenant, Payment
 
 def home(request):
@@ -40,3 +40,8 @@ class TenantDetailView(DetailView):
     model = Tenant
     template_name = 'tenants/tenant_detail.html'
     context_object_name = 'tenant'
+    
+class PaymentDetailView(DetailView):
+    model = Payment
+    template_name = 'payments/payment_detail.html'
+    context_object_name = 'payment'

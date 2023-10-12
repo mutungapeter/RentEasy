@@ -4,7 +4,7 @@ from .models import *
 # Register your models here.
 
 class HouseAdmin(admin.ModelAdmin):
-    list_display = ('landlord', 'house_number', 'house_type', 'rent', 'deposit', 'status',)
+    list_display = ('landlord', 'house_number', 'house_type', 'rent', 'deposit', 'status', 'image')
 
 admin.site.register(House, HouseAdmin)
 
@@ -19,6 +19,6 @@ class LandLordAdmin(admin.ModelAdmin):
 admin.site.register(LandLord, LandLordAdmin)
 
 class PaymentAdmin(admin.ModelAdmin):
-    list_display = ('tenant', 'house', 'amount_due', 'amount_paid', 'date_paid', 'rent_arrears',)
+    list_display = ('payment_id', 'payment_method', 'tenant', 'house', 'amount_due', 'amount_paid', 'date_paid', 'rent_arrears',)
    
 admin.site.register(Payment, PaymentAdmin)
