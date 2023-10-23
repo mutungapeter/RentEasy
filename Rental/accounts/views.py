@@ -114,7 +114,7 @@ class RedirectBasedOnRoleView(LandLordMixin, TenantMixin, View):
     def get(self, request):
         user = request.user
 
-        if user.is_active and not user.has_selected_account():
+        if user.is_active and not user.is_superadmin and not user.has_selected_account():
             return redirect('select_account_type')
         elif user.is_superadmin or user.is_admin or user.is_staff:
             return redirect('dashboard')

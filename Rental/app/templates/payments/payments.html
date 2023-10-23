@@ -1,0 +1,86 @@
+{% extends 'index.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+{% block content %}
+<style>
+    .container-fluid {
+        /* background-color: rgb(226, 236, 236) !important; */
+        background: #0c565f !important;
+    }
+</style>
+
+<!-- row -->
+<div class="container-fluid mt-5 ml-5">
+    <div class="row">
+        <div class="col-lg-7 col-sm-12">
+
+            <section id="basic-datatable">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card mr-5">
+                            <div class="card-header">
+                                <h4 class="card-title mt-3">Lipa na Mpesa </h4>
+                                <ol>
+                                    <li style="font-size: 15px;">Go to Mpesa</li>
+                                    <li style=" font-size: 15px;">Lipa na Mpesa</li>
+                                    <li style=" font-size: 15px;">Buy Goods</li>
+                                    <li style=" font-size: 15px;">Enter Till Number : <span style="font-weight: 900; font-size: 15px;">36979242</span></li>
+                                    <li style=" font-size: 15px;">Press Ok</li>
+                                    <li style=" font-size: 15px;">Enter Mpesa Pin</li>
+                                    <li style=" font-size: 15px;">Press Ok</li>
+                                </ol>
+                                <h5 style="font-weight: 900;">OR</h5>
+                               <h5 style="font-weight: 900; font-size: 15px;"> Click Below to send and STK push</h5>
+                                <a href="#"> <h4><img src="{% static 'images/mpesa2.png' %}" alt="image" style="width: 200px; height: 115px; border-radius: 10px;"  id="mpesa-button" ></h4></a>
+                                
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body card-dashboard">
+                                    <form action="{% url 'process_payment' %}" method="post" id="payment-form" class="mt-4">
+                                        {% csrf_token %}
+                                        <div class="col-lg-8 col-sm-8 form-group">
+                                            <label for="phone_number">Phone Number to Push STK:</label>
+                                            <input type="text" id="phone_number" name="phone_number"
+                                                class="form-control" required>
+                                        </div>
+                                        <div class="col-lg-8 col-sm-8 form-group">
+                                            <label for="amount">Amount:</label>
+                                            <input type="number" id="amount_paid" name="amount_paid" class="form-control"
+                                                required>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary ml-3">Submit Payment</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>
+<script>
+   
+    var payment = document.getElementById("payment-form")
+    // console.log("Payment:", payment);
+    var paymentButton = document.getElementById("mpesa-button")
+    // console.log("Button:", paymentButton);
+    payment.style.display = "none";
+
+    paymentButton.addEventListener("click", function(){
+        payment.style.display = "block";
+    });
+  
+
+</script>
+{% comment %} {% include 'includes/footer.html' %} {% endcomment %}
+
+</div>
+
+{% endblock %}
+
+</html>

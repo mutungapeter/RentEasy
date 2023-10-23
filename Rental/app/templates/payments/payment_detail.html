@@ -9,7 +9,8 @@
 
 <style>
     .container-fluid {
-        background-color: rgb(226, 236, 236) !important;
+        /* background-color: rgb(226, 236, 236) !important; */
+        background: #0c565f !important;
     }
 
     .card-header {
@@ -41,14 +42,10 @@
                                         </div> {% endcomment %}
                                         <div class="col-5">
                                             <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">Tenant:  <span class="badge badge-primary">{{object.tenant.user.full_name}}</span></li>
-                                                <li class="list-group-item">House No:<span class="badge badge-success"> {{object.house.house_number}}</span></li>
-                                                <li class="list-group-item">Payment Id: <span class="badge badge-warning">{{object.payment_id}}</span></li>
-                                                <li class="list-group-item">Payment Method: <span class="badge badge-success">{{object.payment_method}}</span></li>
-                                                <li class="list-group-item">Amount Due: <span class="badge badge-primary">{{object.amount_due}}</span> </li>
-                                                <li class="list-group-item">Amount Paid: <span class="badge badge-warning ">{{object.amount_paid}}</span></li>
-                                                <li class="list-group-item">Date Paid: <span class="badge badge-warning ">{{object.date_paid}}</span></li>
-                                                <li class="list-group-item">Rent Arrears: <span class="badge badge-warning ">{{object.rent_arrears}}</span></li>
+                                                <li class="list-group-item">Tenant:  <span class="badge badge-primary" style="font-size: larger;">{{object.tenant.user.full_name}}</span></li>
+                                                <li class="list-group-item">Payment Method: <span class="badge badge-success" style="font-size: larger;">{{object.payment_method}}</span></li>
+                                                <li class="list-group-item">Amount Paid: <span class="badge badge-warning" style="font-size: larger;">{{object.amount_paid}}</span></li>
+                                                <li class="list-group-item">Date Paid: <span class="badge badge-warning" style="font-size: larger;">{{object.date_paid}}</span></li>
                                             </ul>
                                         </div>
                                     </div>

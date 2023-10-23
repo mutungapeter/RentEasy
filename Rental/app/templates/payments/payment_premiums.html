@@ -22,8 +22,7 @@
                                   <div class="col-12">
                                     <div class="card">
                                       <div class="card-header">
-                                        <h4 class="card-title mt-3">Payments Records <span><a href="#" class="btn btn-sm btn-info mb-3  text-center float-right btn-inline">View Rent Arrears
-                                          </a></span></h4>
+                                        <h4 class="card-title mt-3">Rent Payment Premiums</h4>
                                       </div>
                                       <div class="card-content">
                                         <div class="card-body card-dashboard">
@@ -33,26 +32,43 @@
                                                 <tr>
 
                                                  <th scope="col">No</th>
+                                                 <th scope="col">Landlord</th>
                                                  <th scope="col">Tenant</th>
-                                                  <th scope="col">House No</th>
-                                                  <th scope="col">Amount Paid</th>
-                                                  <th scope="col">Date Paid</th>
+                                                  <th scope="col">Amount</th>
+                                                  <th scope="col">Due Date</th>
+                                                  <th scope="col">Status</th>
                                                   <th scope="col">View Details</th>
                                                 </tr>
                                               </thead>
                                               <tbody>
-                                              {% for object in payments %}
+                                              {% for object in payment_premiums %}
                                                 <tr>
                                                   <td>{{ forloop.counter }}</td>
-                                                  <th scope="row"><a href="{% url 'payment_detail' object.pk %}">{{object.tenant}}</a></th>
-                                                  <td>{{object.tenant.house.house_number}}</td>
-                                                  <td>{{object.amount_paid}}</td>
-                                                  <td>{{object.date_paid}}</td>
+                                                  <!-- <th scope="row"><a href="{% url 'payment_detail' object.pk %}">{{object.tenant}}</a></th> -->
+                                                  <td>{{object.tenant.landlord}}</td>
+                                                  <td>{{object.tenant}}</td>
+                                                  <td>{{object.amount}}</td>
+                                                  <td>{{object.due_date}}</td>
+                                                  <!-- <td>{{object.status}}</td> -->
+
+                                                  <td>
+                                                    <!-- {{ object.status }} -->
+                                                    {% if object.status == 'paid' %}
+                                                      <span class="badge badge-success" style="font-size: larger;">Paid</span>
+                                                    {% elif object.status == 'pending' %}
+                                                      <span class="badge badge-warning" style="font-size: larger;">Pending</span>
+                                                    {% elif object.status == 'unpaid' %}
+                                                      <span class="badge badge-primary" style="font-size: larger;">Unpaid</span>
+                                                    {% elif object.status == 'defaulted' %}
+                                                      <span class="badge badge-danger" style="font-size: larger;">Defaulted</span>
+                                                    {% endif %}
+                                                  </td>
+                                                  
                                                   
                                                   <td>
                                                     <div class="actions-container">
                                                       <span class="action-item">
-                                                        <a href="{% url 'payment_detail' object.pk %}" class="text-primary"><i class="fas fa-eye menu-icon" style="font-size: larger;"></i></a>
+                                                        <a href="#" class="text-primary"><i class="fas fa-eye menu-icon" style="font-size: larger;"></i></a>
                                                       </span>
                                                     </div>
                                                   </td>
@@ -61,12 +77,13 @@
                                               </tbody>
                                               <tfoot>
                                                 <tr>
-                                                <th>No</th>
-                                                 <th>Tenant</th>
-                                                  <th>House No</th>
-                                                  <th>Amount Paid</th>
-                                                  <th>Date Paid</th>
-                                                  <th>View Details</th>
+                                                    <th>No</th>
+                                                    <th>Landlord</th>
+                                                    <th>Tenant</th>
+                                                     <th>Amount</th>
+                                                     <th>Month</th>
+                                                     <th>Status</th>
+                                                     <th>View Details</th>
                                                 </tr>
                                               </tfoot>
                                             </table>

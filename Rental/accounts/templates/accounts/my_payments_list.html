@@ -33,7 +33,7 @@
                           <th scope="col">No</th>
                           <th scope="col">Tenant</th>
                           <th scope="col">House No</th>
-                          <th scope="col">Amount Due</th>
+                          <th scope="col">Rent Premiums</th>
                           <th scope="col">Amount Paid</th>
                           <th scope="col">Date Paid</th>
                           <th scope="col">Rent Arrears</th>
@@ -45,8 +45,8 @@
                         <tr>
                           <td>{{ forloop.counter }}</td>
                           <td>{{object.tenant}}</td>
-                          <td>{{object.house}}</td>
-                          <td>{{object.amount_due}}</td>
+                          <td>{{object.tenant.house.house_number}}</td>
+                          <td>{{object.payment_premium.amount}}</td>
                           <td>{{object.amount_paid}}</td>
                           <td>{{object.date_paid}}</td>
                           <td>{{object.rent_arrears}}</td>

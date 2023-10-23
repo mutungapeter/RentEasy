@@ -15,15 +15,14 @@
             <!-- row -->
             <div class="container-fluid mt-5 ml-3">
                 <div class="row">
-                    <div class="col-lg-10 col-sm-12">
+                    <div class="col-lg-8 col-sm-12">
                         
                             <section id="basic-datatable">
                                 <div class="row">
                                   <div class="col-12">
                                     <div class="card">
                                       <div class="card-header">
-                                        <h4 class="card-title mt-3">Payments Records <span><a href="#" class="btn btn-sm btn-info mb-3  text-center float-right btn-inline">View Rent Arrears
-                                          </a></span></h4>
+                                        <h4 class="card-title mt-3">Rent Arrears
                                       </div>
                                       <div class="card-content">
                                         <div class="card-body card-dashboard">
@@ -32,41 +31,36 @@
                                               <thead>
                                                 <tr>
 
-                                                 <th scope="col">No</th>
-                                                 <th scope="col">Tenant</th>
-                                                  <th scope="col">House No</th>
-                                                  <th scope="col">Amount Paid</th>
-                                                  <th scope="col">Date Paid</th>
-                                                  <th scope="col">View Details</th>
+                                                 <th scope="col"  style="font-size: 20px;">Count</th>
+                                                 <th scope="col"  style="font-size: 20px;">Tenant</th>
+                                                  <!-- <th scope="col">House No</th> -->
+                                                  <th scope="col"  style="font-size: 20px;">Rent Premium</th>
+                                                  <th scope="col"  style="font-size: 20px;">status</th>
+                                                  <th scope="col"  style="font-size: 20px;">Arrears</th>
                                                 </tr>
                                               </thead>
                                               <tbody>
-                                              {% for object in payments %}
+                                              {% for object in rent_arrears %}
                                                 <tr>
                                                   <td>{{ forloop.counter }}</td>
-                                                  <th scope="row"><a href="{% url 'payment_detail' object.pk %}">{{object.tenant}}</a></th>
-                                                  <td>{{object.tenant.house.house_number}}</td>
-                                                  <td>{{object.amount_paid}}</td>
-                                                  <td>{{object.date_paid}}</td>
+                                                  <th scope="row"><a href="#">{{object.tenant}}</a></th>
+                                                  <td style="font-size: 20px;">Premium of  Ksh <span style="font-weight: 800;">{{object.payment_premium.calculate_adjusted_premium}} </span>  Due date: {{object.payment_premium.due_date}}</td>
+                                                  <td  style="font-size: 20px;">{{object.payment_premium.status}}</td>
+                                                  <td  style="font-size: 20px;">{{object.rent_arrears}}</td>
+                                             
                                                   
-                                                  <td>
-                                                    <div class="actions-container">
-                                                      <span class="action-item">
-                                                        <a href="{% url 'payment_detail' object.pk %}" class="text-primary"><i class="fas fa-eye menu-icon" style="font-size: larger;"></i></a>
-                                                      </span>
-                                                    </div>
-                                                  </td>
                                                 </tr>
                                                 {% endfor %}
                                               </tbody>
                                               <tfoot>
                                                 <tr>
-                                                <th>No</th>
-                                                 <th>Tenant</th>
-                                                  <th>House No</th>
-                                                  <th>Amount Paid</th>
-                                                  <th>Date Paid</th>
-                                                  <th>View Details</th>
+                                                    <th>Count</th>
+                                                    <th>Tenant</th>
+                                                    <th>Premiums</th>
+                                                    <th>Status</th>
+                                                     <!-- <th scope="col">House No</th> -->
+                                                     <!-- <th scope="col">Rent Premium</th> -->
+                                                     <th>Arrears</th>
                                                 </tr>
                                               </tfoot>
                                             </table>

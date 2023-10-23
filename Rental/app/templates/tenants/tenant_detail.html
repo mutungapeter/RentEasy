@@ -9,7 +9,8 @@
 
 <style>
     .container-fluid {
-        background-color: rgb(226, 236, 236) !important;
+        /* background-color: rgb(226, 236, 236) !important; */
+        background: #0c565f !important;
     }
 
     .card-header {
@@ -41,12 +42,12 @@
                                         </div>
                                         <div class="col-5">
                                             <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">Tenant Name:  <span class="badge badge-primary">{{object.user.full_name}}</span></li>
-                                                <li class="list-group-item">Landlord:<span class="badge badge-success"> {{object.landlord.user.full_name}}</span></li>
-                                                <li class="list-group-item">Tenant ID NO: <span class="badge badge-warning">{{object.id_number}}</span></li>
-                                                <li class="list-group-item">Tenant Phone Number: <span class="badge badge-success">{{object.phone_number}}</span></li>
-                                                <li class="list-group-item">Entry Date: <span class="badge badge-primary">{{object.occupation_date}}</span> </li>
-                                                <li class="list-group-item">Occupied House No: <span class="badge badge-warning ">{{object.house}}</span></li>
+                                                <li class="list-group-item">Tenant Name:  <span class="badge badge-primary" style="font-size: larger;">{{object.user.full_name}}</span></li>
+                                                <li class="list-group-item">Landlord:<span class="badge badge-success" style="font-size: larger;"> {{object.landlord.user.full_name}}</span></li>
+                                                <li class="list-group-item">Tenant ID NO: <span class="badge badge-warning" style="font-size: larger;">{{object.id_number}}</span></li>
+                                                <li class="list-group-item">Tenant Phone Number: <span class="badge badge-success" style="font-size: larger;">{{object.phone_number}}</span></li>
+                                                <li class="list-group-item">Entry Date: <span class="badge badge-primary" style="font-size: larger;">{{object.occupation_date}}</span> </li>
+                                                <li class="list-group-item">Occupied House No: <span class="badge badge-warning" style="font-size: larger;">{{object.house}}</span></li>
                                             </ul>
                                         </div>
                                     </div>

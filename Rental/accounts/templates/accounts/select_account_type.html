@@ -17,13 +17,17 @@
 <!-- ========================= SECTION CONTENT ========================= -->
 <style>
     .card {
-        background-color: aquamarine;
+        /* background-color: purple; */
+        background-color: rgb(31, 72, 72);
+        /* background: #0c565f !important; */
     }
 
     .card-header {
-        background-color: aquamarine;
+        background-color: rgb(31, 72, 72);
+        /* background: #0c565f !important; */
     }
 </style>
+
 <div class="content-wrapper">
     <div class="body mt-5">
 
@@ -36,10 +40,10 @@
                         <div class="card rounded-0 mb-0 px-2" style="height: 500px;">
                             <div class="card-header pb-1">
                                 <div class="card-title">
-                                    <h4 class="mb-0 text-center mt-4">KWEMA RENTALS</h4>
+                                    <h4 class="mb-0 text-center  text-white mt-4">KWEMA RENTALS</h4>
                                 </div>
                             </div>
-                            <p class="px-2">Complete Account Creation by selecting account type</p>
+                            <p class="px-2 text-white">Complete Account Creation by selecting account type</p>
 
                             <div class="card-content">
                                 <div class="card-body pt-1" style="height: 390px;">
@@ -48,16 +52,16 @@
 
                                     <form action="{% url 'select_account_type' %}" method="POST">
                                         {% csrf_token %}
-                                        <label for="email" class="">Select for a Landlord Account</label>
+                                        <label for="email" class="text-white">Select for a Landlord Account</label>
                                         <fieldset class="form-label-group form-group position-relative mt-2 mb-1">
                                             <label>
-                                                <input type="radio" name="account_type" value="landlord"> LandLord
+                                                <input type="radio" name="account_type" value="landlord"> <span class="text-white">LandLord</span> 
                                             </label>
                                         </fieldset>
-                                        <label for="user-password">Select for a Tenant account</label>
+                                        <label for="user-password"  class="text-white">Select for a Tenant account</label>
                                         <fieldset class="form-label-group position-relative mt-4">
                                             <label>
-                                                <input type="radio" name="account_type" value="tenant"> Tenant
+                                                <input type="radio" name="account_type" value="tenant"> <span class="text-white">Tenant</span> 
                                             </label>
                                         </fieldset>
 

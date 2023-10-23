@@ -5,17 +5,48 @@
 <!-- ========================= SECTION CONTENT ========================= -->
 <style>
     .body {
-        background: #e8f0f1 !important;
+        background: #0c565f !important;
     }
 
     .content-wrapper {
-        background: #e8f0f1;
+        background: #e8f0f1 !important;
+    }
+
+    .section {
+        background: #e8f0f1 !important;
+    }
+
+    .form-group.position-relative {
+        position: relative !important;
+    }
+
+    .form-control {
+        padding-right: 2.5rem !important;
+        /* Adjust the value to control the spacing between the icon and the input field */
+    }
+
+    .form-control {
+        padding-right: 2.5rem;
+        height: 60px !important;
+        /* Adjust the height as needed */
+        border-radius: 12px !important;
+        font-size: larger !important;
+        /* font-weight: bold !important; */
+    }
+
+    .toggle-password {
+        position: absolute;
+        top: 50%;
+        right: 0.5rem;
+        /* Adjust the value to control the distance from the right edge */
+        transform: translateY(-50%);
+        cursor: pointer;
     }
 </style>
 <div class="content-wrapper">
     <div class="body">
 
-        <section class="row flexbox-container row mt-5">
+        <section class="row flexbox-container row ">
             <div class="col-xl-12 col-11  col-md-12 d-flex justify-content-center">
                 {% if request.GET.command == 'verification' %}
                 <div class="container max-auto alert  text-center text-dark" role="alert"
@@ -27,17 +58,16 @@
                 </div>
 
                 {% else %}
-                <div class="card bg-authentication rounded-0 mt-4 mb-3">
+                <div class="card bg-authentication rounded-0 mt-5 mb-5 ml-5">
                     <div class="col-lg-12 col-md-12 p-0">
 
-                        <div class="card rounded-0 mb-0 px-2" style="height: 600px;">
+                        <div class="card rounded-0 mb-0 px-2" style="height: 700px;">
                             <div class="card-header pb-1">
                                 <div class="card-title mt-4">
-                                    <h4 class="mb-0 text-center" style="margin-left: 150px;">KWEMA RENTALS</h4>
+                                    <h4 class="mb-0 text-center">KWEMA RENTALS</h4>
                                 </div>
                             </div>
                             <p class="px-2">Welcome back please login to your account.</p>
-
                             <div class="card-content">
                                 <div class="card-body pt-1" style="height: 390px;">
                                     {% include 'includes/alerts.html' %}
@@ -48,22 +78,26 @@
                                             <input type="text" class="form-control" name="email" id=""
                                                 placeholder="email" required>
                                         </fieldset>
-                                        <label for="user-password">Password</label>
-                                        <fieldset class="form-label-group position-relative mt-4">
-                                            <input type="password" class="form-control" name="password" id=""
+                                        <label for="user-password" class="mt-3">Password</label>
+                                        <div class="form-group position-relative mt-4">
+                                            <input type="password" class="form-control" name="password" id="password"
                                                 placeholder="Password" required>
-
-
-                                        </fieldset>
+                                            <i class="fas fa-eye-slash toggle-password" id="togglePassword"></i>
+                                        </div>
+                                        <!-- <fieldset class="form-label-group position-relative mt-4">
+                                            <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+                                            <i class="fas fa-eye-slash toggle-password" id="togglePassword"></i>
+                                            
+                                        </fieldset> -->
                                         <div class="form-group d-flex justify-content-between align-items-center">
                                             <div class="text-left">
-                                                <div class="text-right mt-3">
+                                                <div class="text-right mt-5">
                                                     <p class="text-center">New to Book KWEMA RENTALS? <a
                                                             href="{% url 'register' %}">Create Account</a></p>
                                                 </div>
                                             </div>
                                             <div class="text-left" style="margin-left: 50px;"> <a href="#"
-                                                    class="float-right mt-3">Forgot password?</a>
+                                                    class="float-right mt-4">Forgot password?</a>
                                             </div>
 
                                         </div>
@@ -95,5 +129,23 @@
 </div>
 </div>
 <!-- ========================= SECTION CONTENT END// ========================= -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const passwordInput = document.getElementById("password");
+        const togglePassword = document.getElementById("togglePassword");
+
+        togglePassword.addEventListener("click", function () {
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                togglePassword.classList.remove("fa-eye-slash");
+                togglePassword.classList.add("fa-eye");
+            } else {
+                passwordInput.type = "password";
+                togglePassword.classList.remove("fa-eye");
+                togglePassword.classList.add("fa-eye-slash");
+            }
+        });
+    });
+</script>
 
 {% endblock %}

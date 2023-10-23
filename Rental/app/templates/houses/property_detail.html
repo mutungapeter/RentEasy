@@ -9,7 +9,8 @@
 
 <style>
     .container-fluid {
-        background-color: rgb(226, 236, 236) !important;
+        /* background-color: rgb(226, 236, 236) !important; */
+        background: #0c565f !important;
     }
 
     .card-header {
@@ -41,12 +42,12 @@
                                         </div>
                                         <div class="col-5">
                                             <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">Landlord:  <span class="badge badge-primary">{{object.landlord.user.full_name}}</span></li>
-                                                <li class="list-group-item">House No:<span class="badge badge-success"> {{object.house_number}}</span></li>
-                                                <li class="list-group-item">House Type: <span class="badge badge-warning">{{object.house_type}}</span></li>
-                                                <li class="list-group-item">Rent Cost: <span class="badge badge-success">{{object.rent}}</span></li>
-                                                <li class="list-group-item">Deposit Cost: <span class="badge badge-primary">{{object.deposit}}</span> </li>
-                                                <li class="list-group-item">status: <span class="badge badge-warning ">{{object.stats}}</span></li>
+                                                <li class="list-group-item">Landlord:  <span class="badge badge-primary" style="font-size: larger;">{{object.landlord.user.full_name}}</span></li>
+                                                <li class="list-group-item">House No:<span class="badge badge-success" style="font-size: larger;"> {{object.house_number}}</span></li>
+                                                <li class="list-group-item">House Type: <span class="badge badge-warning" style="font-size: larger;">{{object.house_type}}</span></li>
+                                                <li class="list-group-item">Rent Cost: <span class="badge badge-success" style="font-size: larger;">{{object.rent}}</span></li>
+                                                <li class="list-group-item">Deposit Cost: <span class="badge badge-primary" style="font-size: larger;">{{object.deposit}}</span> </li>
+                                                <li class="list-group-item">status: <span class="badge badge-warning" style="font-size: larger;">{{object.status}}</span></li>
                                             </ul>
                                         </div>
                                     </div>
